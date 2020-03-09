@@ -1,18 +1,9 @@
 class Negociacao {
 
-    private _data: any;
-    private _quantidade: any;
-    private _valor: any;
-
-    constructor(data, quantidade, valor) {
-
-        if(!data) throw new Error('Data deve ser preenchida!')
-        if(!quantidade) throw new Error('Quantidade deve ser preenchida!')
-        if(!valor) throw new Error('Valor deve ser preenchido!')
-
-        this._data = data
-        this._quantidade = quantidade
-        this._valor = valor
+    constructor(private _data: Date, private _quantidade: number, private _valor: number) {
+        if(!_data) throw new Error('Data deve ser preenchida!')
+        if(!_quantidade) throw new Error('Quantidade deve ser preenchida!')
+        if(!_valor) throw new Error('Valor deve ser preenchido!')
     }
 
     get data() {

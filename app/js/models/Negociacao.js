@@ -1,14 +1,14 @@
 class Negociacao {
-    constructor(data, quantidade, valor) {
-        if (!data)
+    constructor(_data, _quantidade, _valor) {
+        this._data = _data;
+        this._quantidade = _quantidade;
+        this._valor = _valor;
+        if (!_data)
             throw new Error('Data deve ser preenchida!');
-        if (!quantidade)
+        if (!_quantidade)
             throw new Error('Quantidade deve ser preenchida!');
-        if (!valor)
+        if (!_valor)
             throw new Error('Valor deve ser preenchido!');
-        this._data = data;
-        this._quantidade = quantidade;
-        this._valor = valor;
     }
     get data() {
         return this._data;
