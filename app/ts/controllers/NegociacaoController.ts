@@ -1,5 +1,6 @@
 import { NegociacoesView, MensagemView } from "../views/index"
 import { Negociacao, Negociacoes } from "../models/index"
+import { logarTempoDeExecucao } from "../helpers/decorators/index"
 
 export class NegociacaoController {
 
@@ -17,8 +18,8 @@ export class NegociacaoController {
     this._negociacoesView.update(this._negociacoes)
   }
 
+  @logarTempoDeExecucao()
   adiciona(event: Event) {
-    const t1 = performance.now()
 
     event.preventDefault()
 
@@ -39,11 +40,6 @@ export class NegociacaoController {
     this._negociacoesView.update(this._negociacoes)
 
     this._mensagemView.update('Negociação adicionada com sucesso!')
-
-    const t2 = performance.now()
-
-    console.log(`O tempo de execução de add é de:${t2 - t1} ms`)
-
   }
 
   private _ehDiaUtil(data: Date) {
